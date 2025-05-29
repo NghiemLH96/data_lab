@@ -3,7 +3,7 @@ import 'primeicons/primeicons.css';
 
 function Cli_header() {
   return (
-    <div>Cli Header</div>
+    <div style={{background:"red"}}>Cli Header</div>
   )
 }
 

@@ -4,15 +4,17 @@ import Home from "../pages/public/Home/Home";
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
 import Result from "../pages/public/Result/Result";
+import OverallResult from "../pages/public/Result/OverallResult.tsx";
 
 export default function MainRoute() {
   return (
     <BrowserRouter>
       <Routes>
           <Route element={<PublicRoutes/>} >
-              <Route path="/home" element={<Home/>} />
+              <Route path="/" element={<Home/>} />
               <Route path="/exam" element={<Exam/>} />
               <Route path="/result" element={<Result/>} />
+              <Route path="/overall-result" element={<OverallResult/>} />
           </Route>
           <Route element={<PrivateRoutes/>} >
 
