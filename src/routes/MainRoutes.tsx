@@ -12,10 +12,10 @@ export default function MainRoute() {
           <Route element={<PublicRoutes/>} >
               <Route path="/home" element={<Home/>} />
               <Route path="/exam" element={<Exam/>} />
-              
+              <Route path="/result" element={<Result/>} />
           </Route>
           <Route element={<PrivateRoutes/>} >
-              <Route path="/result" element={<Result/>} />
+
               <Route path="/dashboard" element={<div>Dashboard</div>} />
           </Route>
       </Routes>
