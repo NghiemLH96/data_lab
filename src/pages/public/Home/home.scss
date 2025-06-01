@@ -1,0 +1,78 @@
+.home-page{
+    padding: 100px;
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    .home-page__nav-buttons{
+        background-color: #0056B3;
+        padding: 10px 40px;
+        color: var(--color-white);
+        border-radius: 5px;
+        border: none;
+        font-size: var(--font-size-small);
+    }
+    .home-page__hero-container{
+        padding: 50px 300px;
+        background-color: var(--color-background-light);
+        .home-page__hero-container__title{
+            font-size: var(--font-size-hero);
+            font-weight: 2000;
+            margin-bottom: 20px;
+        }
+        .home-page__hero-container__description{
+            color: var(--color-text-muted);
+            font-size: var(--font-size-large);
+            margin-bottom: 20px;
+        }
+    }
+    .home-page__features-container{
+        padding: 50px 0;
+        .home-page__features-container__title{
+            font-size: var(--font-size-xxlarge);
+            font-weight: 2000;
+            margin-bottom: 20px;
+        }
+        .home-page__features{
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            column-gap: 40px;
+            .home-page__feature{
+                flex: 1;
+                border: 3px solid var(--color-border-light);
+                padding: 20px;
+                font-size: var(--font-size-medium);
+                .home-page__feature__icon{
+                    font-size: var(--font-size-xxlarge);
+                    color: var(--color-primary);
+                    margin-bottom: 30px;
+                }
+                .home-page__feature__title{
+                    font-size: var(--font-size-xlarge);
+                    font-weight: 600;
+                    margin-bottom: 20px;
+                }
+                .home-page__feature__description{
+                    color: var(--color-text-muted);
+                    font-size: var(--font-size-small);
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+    .home-page__cta-container{
+        width: 100%;
+        border: 3px solid var(--color-border-light);
+        padding: 40px 0;
+        .home-page__cta-container__title{
+            font-size: var(--font-size-xxlarge);
+            font-weight: 2000;
+            margin-bottom: 20px;
+        }
+        .home-page__cta-container__description{
+            color: var(--color-text-muted);
+            font-size: var(--font-size-small);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -3,3 +3,27 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('/src/font/Archivo/Archivo-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+:root {
+  --primary-font: 'Archivo', sans-serif;
+  --font-size-small: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xlarge: 24px;
+  --font-size-xxlarge: 40px;
+  --font-size-hero: 60px;
+  --color-primary: #0056B3;
+  --color-white: #FFFFFF;
+  --color-background-light: #E5F0FC;
+  --color-text-muted: #8C8D8B;
+  --color-border-light: #EBEBEA;
+  --color-question-background: #F7F7F7;
+}
+
