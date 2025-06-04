@@ -19,7 +19,7 @@ export default function OverallResult() {
       </section>
       <section className='result-section'>
         <h4 className='result__section-title'>thông tin chung</h4>
-        <p className='result__exam-overall'><b>số bài kiểm tra đã hoàn thành:</b>: 5 (3 bài kiểm tra nhỏ, 2 bài thi giữa kì)</p>
+        <p className='result__exam-overall'><b>số bài kiểm tra đã hoàn thành</b>: 5 (3 bài kiểm tra nhỏ, 2 bài thi giữa kì)</p>
         <p className='result__exam-overall'><b>điểm số</b>: 71.8/100</p>
       </section>
       <section className='result-section'>

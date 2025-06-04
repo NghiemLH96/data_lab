@@ -1,25 +1,26 @@
 .exam-page {
+    // Trang làm bài thi
     display: flex;
     flex-direction: column;
     padding: 20px 100px;
     row-gap: 10px;
     font-family: 'Archivo', sans-serif;
 
-    // Khối chính của trang thi
     .exam-page__section {
+        // Khối chứa các phần nội dung bài thi
         display: flex;
         column-gap: 10px;
         width: 100%;
 
-        // Cấu hình các khối của bài kiểm tra
         .exam-page__section__item {
+            // Mỗi khối nội dung con trong section
             border: 2px solid var(--color-border-light);
             border-radius: 5px;
             padding: 20px;
         }
 
-        // Tiêu đề của bài kiểm tra
         .exam-info {
+            // Khối thông tin bài thi (tiêu đề, mô tả)
             flex: 3;
             display: flex;
             flex-direction: column;
@@ -27,18 +28,20 @@
             row-gap: 5px;
 
             .exam-info__title {
+                // Tiêu đề bài thi
                 font-size: var(--font-size-xlarge);
                 font-weight: 2000;
             }
 
             .exam-info__description {
+                // Mô tả bài thi
                 color: var(--color-text-muted);
                 font-size: var(--font-size-small);
             }
         }
 
-        // Bảng câu hỏi
         .question-board {
+            // Bảng lựa chọn nhanh các câu hỏi
             flex: 2;
 
             &>hr {
@@ -48,6 +51,7 @@
             }
 
             .question-board__list {
+                // Lưới hiển thị các số câu hỏi
                 display: grid;
                 padding: 20px;
                 grid-template-columns: repeat(5, 1fr);
@@ -55,6 +59,7 @@
                 row-gap: 30px;
 
                 .question-board__item {
+                    // Mỗi ô chọn câu hỏi
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -66,11 +71,13 @@
                     transition: background-color 0.3s ease;
 
                     &:hover {
+                        // Hover vào ô câu hỏi
                         background-color: var(--color-primary);
                         color: var(--color-white);
                     }
 
                     &.active {
+                        // Câu hỏi đang được chọn
                         background-color: var(--color-primary);
                         color: var(--color-white);
                     }
@@ -78,84 +85,108 @@
             }
         }
 
-        // Bảng nội dung câu hỏi
         .exam-board {
+            // Bảng hiển thị nội dung câu hỏi
             flex: 7;
             display: flex;
             flex-direction: column;
             row-gap: 10px;
 
             .exam-question {
+                // Khối chứa câu hỏi và đáp án
+
                 .exam-board__current-question {
+                    // Tiêu đề câu hỏi hiện tại
                     font-size: var(--font-size-large);
                     font-weight: 2000;
                 }
+
                 &>hr {
                     border: none;
                     border-top: 3px solid var(--color-border-light);
                     margin: 10px 0;
                 }
-                .exam-board__question-content{
+
+                .exam-board__question-content {
+                    // Nội dung câu hỏi
                     font-size: var(--font-size-medium);
                     line-height: 1.5;
                     margin-bottom: 20px;
                 }
-                .exam-board__question-image{
+
+                .exam-board__question-image {
+                    // Ảnh minh họa câu hỏi (nếu có)
                     width: 100%;
                     max-width: 300px;
                     object-fit: contain;
                     height: auto;
                     margin-bottom: 20px;
                 }
-                .exam-board__options{
+
+                .exam-board__options {
+                    // Danh sách các đáp án
                     display: flex;
                     flex-direction: column;
                     row-gap: 10px;
 
                     .exam-board__options-item {
+                        // Mỗi đáp án
                         padding: 10px;
                         border: 2px solid var(--color-border-light);
                         border-radius: 5px;
                         cursor: pointer;
                         transition: background-color 0.3s ease;
+                        &>input{
+                            margin-right: 10px;
+                        }
 
                         &:hover {
+                            // Hover vào đáp án
                             background-color: var(--color-primary);
                             color: var(--color-white);
                         }
 
                         &.selected {
+                            // Đáp án được chọn
                             background-color: var(--color-primary);
                             color: var(--color-white);
                         }
                     }
                 }
             }
-            .navigation{
+
+            .navigation {
+                // Điều hướng giữa các câu hỏi
                 display: flex;
                 justify-content: space-between;
-                .exam-board__navigation-button{
+
+                .exam-board__navigation-button {
+                    // Nút điều hướng (tiếp theo, trước đó, nộp bài)
                     padding: 10px 20px;
-                    //background-color: var(--color-primary);
-                    //color: var(--color-white);
                     border: 2px solid;
                     border-radius: 5px;
                     cursor: pointer;
                     font-size: var(--font-size-small);
                     transition: background-color 0.3s ease;
-                    &.nav{
+
+                    &.nav {
+                        // Nút "Trước"/"Sau"
                         background-color: var(--color-primary);
                         color: var(--color-white);
+
                         &:hover {
                             background-color: var(--color-white);
                             color: var(--color-primary);
                             border-color: var(--color-primary);
                         }
                     }
+
                     &.submit {
+                        // Nút "Nộp bài"
                         background-color: transparent;
                         color: var(--color-primary);
                         border-color: var(--color-primary);
+
                         &:hover {
                             background-color: var(--color-primary);
                             color: var(--color-white);

@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { BarChartOutlined, FileTextOutlined, HistoryOutlined, LineChartOutlined, LoginOutlined, PaperClipOutlined, MenuOutlined, ArrowLeftOutlined } from '@ant-design/icons'
 import './sideBar.scss'
+import { Link } from 'react-router-dom'
 
 const sidebarItems = [
-  { icon: <BarChartOutlined />, title: 'Thống kê' },
-  { icon: <PaperClipOutlined />, title: 'Quản lý đề thi' },
-  { icon: <FileTextOutlined />, title: 'Tài liệu tham khảo' },
-  { icon: <HistoryOutlined />, title: 'Lịch sử làm bài' },
-  { icon: <LineChartOutlined />, title: 'Kết quả tổng quát' },
-  { icon: <LoginOutlined />, title: 'Đăng xuất' },
+  { icon: <BarChartOutlined />, title: 'Thống kê' , page: '/overview'},
+  { icon: <PaperClipOutlined />, title: 'Quản lý đề thi', page: '/exam-manager' },
+  { icon: <PaperClipOutlined />, title: 'Quản lý câu hỏi', page: '/questions-manager' },
+  { icon: <PaperClipOutlined />, title: 'Quản lý ma trận', page: '/matrix-manager' },
+  { icon: <FileTextOutlined />, title: 'Tài liệu tham khảo', page: '/references' },
+  { icon: <HistoryOutlined />, title: 'Lịch sử làm bài', page: '/history' },
+  { icon: <LineChartOutlined />, title: 'Kết quả tổng quát', page: '/overall-result' },
+  { icon: <LoginOutlined />, title: 'Đăng xuất', page: '/' },
 ]
 
 export default function SideBar() {
@@ -31,10 +34,10 @@ export default function SideBar() {
             </span>
           </li>
           {sidebarItems.map((item, idx) => (
-            <li className='sidebar-list-item' key={idx}>
+            <Link to={item.page} className='sidebar-list-item' key={idx}>
               <span className='sidebar-list-icon'>{item.icon}</span>
               <span className='sidebar-list-title'>{item.title}</span>
-            </li>
+            </Link>
           ))}
         </ul>
       </aside>

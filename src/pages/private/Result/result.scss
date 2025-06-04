@@ -1,4 +1,5 @@
 .result-page {
+    // Layout tổng cho trang kết quả
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -6,19 +7,23 @@
     flex-direction: column;
     row-gap: 10px;
     font-family: var(--primary-font);
-    padding: 0 100px;
+    padding: 20px 100px;
 
     .result__section-title {
+        // Tiêu đề của từng phần kết quả
         text-transform: capitalize;
         color: #38618C;
         padding: 20px 0;
     }
-    .result__exam-overall{
+
+    .result__exam-overall {
+        // Thông tin tổng quan về bài thi
         text-transform: capitalize;
         padding: 10px 0;
     }
 
     .result__analysis-table {
+        // Bảng phân tích kết quả
         border-collapse: collapse;
 
         th,
@@ -37,6 +42,7 @@
     }
 
     .result-title {
+        // Tiêu đề chính của trang
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -49,10 +55,13 @@
         padding: 20px 0;
 
         .result-title__time-info {
+            // Thông tin thời gian trong tiêu đề
             font-size: 13px;
         }
     }
-    .result__evoluation{
+
+    .result__evoluation {
+        // Phần đánh giá hoặc nhận xét kết quả
         background-color: #eeeeee;
         padding: 25px 10px;
         border-radius: 4px;

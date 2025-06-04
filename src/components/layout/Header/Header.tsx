@@ -1,9 +1,17 @@
 import './private_header.scss';
+import './public_header.scss'
 import 'primeicons/primeicons.css';
+
 
 function Cli_header() {
   return (
-    <div style={{background:"red"}}>Cli Header</div>
+    <div className='public-nav'>
+      <section className='public-nav__container'>
+        <h1 className='public-nav__logo'>logo</h1>
+        <button className='public-nav__login-btn'>Login</button>
+      </section>
+      <hr />
+    </div>
   )
 }
 

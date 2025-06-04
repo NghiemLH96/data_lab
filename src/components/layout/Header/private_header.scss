@@ -1,15 +1,15 @@
 .private-nav {
     font-family: var(--primary-font);
+    height: 80px;
     .private-nav__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 80px;
+        height: 100%;
         width: 100%;
         background-color: var(--color-white);
         padding: 0 100px;
         font: var(--font-size-small);
-
         .nav__title {
             font: var(--font-size-large);
             color: #2E4052;
@@ -19,7 +19,6 @@
             display: flex;
             align-items: center;
             column-gap: 20px;
-
             .search_box {
                 display: flex;
                 align-items: center;

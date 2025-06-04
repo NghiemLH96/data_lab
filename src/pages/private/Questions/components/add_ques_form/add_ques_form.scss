@@ -1,0 +1,26 @@
+.add-ques-form-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    background-color:rgba(var(--color-cover-background));
+    .add-ques-form{
+        width: 80%;
+        height: auto;
+        overflow-y: auto;
+        max-height: 80%;
+        background-color: var(--color-white);
+        padding: 40px;
+        border-radius: 10px;
+        .add-ques-form-item{
+            .add-ques-form-item__title{
+                text-align: center;
+            }
+        }
+    }
+}
