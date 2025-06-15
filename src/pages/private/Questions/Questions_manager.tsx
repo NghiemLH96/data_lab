@@ -1,10 +1,25 @@
-import { Button, Col, Row, Space, Table, type TableColumnsType } from 'antd';
+import { Button, Space, Table, type TableColumnsType } from 'antd';
 import './question_manager.scss'
 import type { QuestionDataType } from '../../../types/questions';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Add_ques_form from './components/add_ques_form/Add_ques_form';
-import { CheckCircleOutlined, CheckOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined } from '@ant-design/icons';
+import type { TransformedQuestion } from '../../../services/QuestionService';
+import QuestionService from '../../../services/QuestionService';
 export default function Questions_manager() {
+
+  const [questions, setQuestions] = useState<TransformedQuestion[]>([]);
+
+  useEffect(() => {
+    QuestionService.fetchQuestions()
+      .then(data => setQuestions(data))
+      .catch(error => console.error("Lỗi khi tải câu hỏi:", error));
+  }, []);
+
+  useEffect(()=>{
+    console.log(questions);
+    
+  },[questions])
   const [addFormState, setAddFormState] = useState(false);
   const columns: TableColumnsType<QuestionDataType> = [
     { title: 'Kiểu câu hỏi', dataIndex: 'question_type', key: 'question_type', render: (question_type) => question_type.toUpperCase() },
@@ -24,167 +39,6 @@ export default function Questions_manager() {
       ),
     },
   ];
-
-  const data: QuestionDataType[] = [
-    {
-      key: 1,
-      question_type: "mcq",
-      question_content: "Trong các thuật toán sau, thuật toán nào có độ phức tạp thời gian tốt nhất trong trường hợp trung bình?",
-      question_image: "null",
-      chapter: "Tổng quan",
-      answers: ["Bubble Sort", "Insertion Sort", "Merge Sort", "Selection Sort"],
-      correct_answers: ["Merge Sort"],
-      diff_level: 2,
-      disc_level: 0.5,
-      bloom_level: "U",
-      tolerance_range: 0,
-      partial_credit: 0,
-      synonyms: [],
-      syntax_variants: []
-    },
-    {
-      key: 2,
-      question_type: "fn",
-      question_content: "Thuật toán tìm kiếm nhị phân có độ phức tạp thời gian là bao nhiêu (log2 làm cơ số)?",
-      question_image: "null",
-      chapter: "Tìm kiếm và sắp xếp",
-      answers: [],
-      correct_answers: [],
-      correct_number: 0.3, // bạn có thể tùy chỉnh hiển thị là log2(n)
-      diff_level: 2,
-      disc_level: 0.4,
-      bloom_level: "U",
-      tolerance_range: 0.01,
-      partial_credit: 0,
-      synonyms: [],
-      syntax_variants: []
-    },
-    {
-      key: 3,
-      question_type: "fns",
-      question_content: "Nhập vào 5 phần tử đầu tiên của dãy Fibonacci.",
-      question_image: "null",
-      chapter: "Tổng quan",
-      answers: [],
-      correct_answers: [],
-      correct_sequence: [0, 1, 1, 2, 3],
-      diff_level: 2,
-      disc_level: 0.4,
-      bloom_level: "U",
-      tolerance_range: 0,
-      partial_credit: 1,
-      synonyms: [],
-      syntax_variants: []
-    },
-    {
-      key: 4,
-      question_type: "fps",
-      question_content: "Điền cú pháp khai báo một nút trong danh sách liên kết đơn bằng C++.",
-      question_image: "null",
-      chapter: "Danh sách liên kết",
-      answers: [],
-      correct_answers: [],
-      correct_syntax: "struct Node { int data; Node* next; };",
-      syntax_variants: [
-        "struct Node { int data; Node *next; };",
-        "typedef struct Node { int data; Node* next; } Node;"
-      ],
-      diff_level: 3,
-      disc_level: 0.5,
-      bloom_level: "U",
-      tolerance_range: 0,
-      partial_credit: 0,
-      synonyms: []
-    },
-    {
-      key: 5,
-      question_type: "fe",
-      question_content: "Viết biểu thức tính chiều cao của cây nhị phân tính từ nút gốc (node).",
-      question_image: "null",
-      chapter: "Cây",
-      answers: [],
-      correct_answers: [],
-      correct_expression: "1 + max(height(node->left), height(node->right))",
-      syntax_variants: ["max(height(node->left), height(node->right)) + 1"],
-      diff_level: 3,
-      disc_level: 0.6,
-      bloom_level: "A",
-      tolerance_range: 0,
-      partial_credit: 0,
-      synonyms: []
-    },
-    {
-      key: 6,
-      question_type: "fss",
-      question_content: "Từ khóa nào được dùng để khai báo một hằng số trong C++?",
-      question_image: "null",
-      chapter: "Tổng quan",
-      answers: [],
-      correct_answers: [],
-      correct_string: "const",
-      synonyms: ["CONST"],
-      syntax_variants: [],
-      diff_level: 1,
-      disc_level: 0.2,
-      bloom_level: "R",
-      tolerance_range: 0,
-      partial_credit: 0
-    },
-    {
-      key: 7,
-      question_type: "pe",
-      question_content: "Viết hàm C++ để đảo ngược một hàng đợi (queue) sử dụng ngăn xếp (stack).",
-      question_image: "null",
-      chapter: "Hàng chờ và ngăn xếp",
-      answers: [],
-      correct_answers: [],
-      programming_data: {
-        initial_code: `#include <iostream>
-  #include <queue>
-  #include <stack>
-  using namespace std;
-  
-  void reverseQueue(queue<int> &q) {
-    // Viết mã ở đây
-  }`,
-        language: "cpp",
-        test_cases: [
-          { input: "queue = [1, 2, 3]", expected_output: "[3, 2, 1]" },
-          { input: "queue = [5, 10]", expected_output: "[10, 5]" }
-        ]
-      },
-      diff_level: 4,
-      disc_level: 0.7,
-      bloom_level: "C",
-      tolerance_range: 0,
-      partial_credit: 1,
-      synonyms: [],
-      syntax_variants: []
-    },
-    {
-      key: 8,
-      question_type: "mp",
-      question_content: "Ghép cặp các cấu trúc dữ liệu với độ phức tạp tra cứu trung bình.",
-      question_image: "null",
-      chapter: "Bảng băm",
-      answers: ["Array", "Linked List", "Hash Table", "Binary Search Tree"],
-      correct_answers: [],
-      matching_pairs: [
-        { left: "Array", right: "O(1)" },
-        { left: "Linked List", right: "O(n)" },
-        { left: "Hash Table", right: "O(1)" },
-        { left: "Binary Search Tree", right: "O(log n)" }
-      ],
-      diff_level: 3,
-      disc_level: 0.6,
-      bloom_level: "U",
-      tolerance_range: 0,
-      partial_credit: 1,
-      synonyms: [],
-      syntax_variants: []
-    }
-  ];
-
 
 
   return (
@@ -305,7 +159,7 @@ export default function Questions_manager() {
           ),
           rowExpandable: (record) => record.question_type !== 'Not Expandable',
         }}
-        dataSource={data} />
+        dataSource={questions} />
     </section>
   )
 }
